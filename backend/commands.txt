@@ -1,0 +1,30 @@
+yarn init -y
+yarn add express
+yarn add @types/express -D
+yarn add typescript -D
+yarn tsc --init
+yarn add ts-node-dev -D
+yarn add multer
+yarn add express-async-errors
+yarn add yup
+yarn add typeorm sqlite3
+yarn add cors
+
+package.json {
+-- criar uma sessão chamada scripts 
+-- criar script para executar o ambiente como desenvolvimento (ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts).
+--passo abaixo executar apos criar o db e conexao
+-- criar script para o typeorm executar com o typescript (ts-node-dev ./node_modules/typeorm/cli.js)
+yarn typeorm migration:create -n create_orphanages
+yarn typeorm migration:run
+-- descomentar strictpropertyinitialization e mudar para false
+-- descomentar experimental options e mantem como true
+}
+
+criar pasta database {
+criar ormconfig.json {
+-- adicionar entities e o caminho da model e todos os arquivos *.ts
+}
+criar connection.ts
+criar pasta migrations {}
+}
